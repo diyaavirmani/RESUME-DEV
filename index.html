@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Developer Desktop Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="desktop-shell">
+      <header class="topbar">
+        <div class="brand">dev://portfolio</div>
+        <nav>
+          <a href="#about">about.md</a>
+          <a href="#projects">projects/</a>
+          <a href="#contact">contact.sh</a>
+        </nav>
+      </header>
+
+      <section class="window" id="about">
+        <div class="window-head">
+          <span></span><span></span><span></span>
+          <p>~/workspace/portfolio</p>
+        </div>
+
+        <div class="window-body">
+          <div class="portrait-panel">
+            <div class="portrait-frame">
+              <img
+                src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&fit=crop&w=900&q=80"
+                alt="Developer portrait placeholder"
+              />
+            </div>
+            <p class="portrait-note">Replace this with your own image in production.</p>
+          </div>
+
+          <div class="hero-panel">
+            <p class="welcome">Welcome to</p>
+            <h1><span>your</span> developer space</h1>
+            <p class="tagline">
+              Full-stack engineer building fast, elegant products with React, TypeScript, Node.js, and cloud-native workflows.
+            </p>
+
+            <div class="chips" id="projects">
+              <article>
+                <h2>api-gateway</h2>
+                <p>Scalable backend design</p>
+              </article>
+              <article>
+                <h2>ui-lab</h2>
+                <p>Design systems + accessibility</p>
+              </article>
+              <article>
+                <h2>automation</h2>
+                <p>CI/CD and release pipelines</p>
+              </article>
+              <article>
+                <h2>ai-tools</h2>
+                <p>LLM-first product features</p>
+              </article>
+            </div>
+
+            <div class="terminal-snippet">
+              <p><span>$</span> status --open-to-work</p>
+              <p class="ok">true // available for freelance & full-time</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <aside class="social-rail" id="contact" aria-label="Social links">
+      <a href="https://www.linkedin.com/in/your-username" target="_blank" rel="noreferrer" aria-label="LinkedIn">in</a>
+      <a href="https://github.com/your-username" target="_blank" rel="noreferrer" aria-label="GitHub">gh</a>
+      <a href="https://x.com/your-username" target="_blank" rel="noreferrer" aria-label="X">x</a>
+      <a href="https://instagram.com/your-username" target="_blank" rel="noreferrer" aria-label="Instagram">ig</a>
+    </aside>
+  </body>
+</html>
