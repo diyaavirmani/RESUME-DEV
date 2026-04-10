@@ -148,3 +148,38 @@
   randomizeFolders();
 
 })();
+
+/* -- Dock Magnification Logic -- */
+(function() {
+  const dock = document.getElementById("dock");
+  const dockItems = document.querySelectorAll(".dock-item, .dock-sep");
+  
+  if (!dock) return;
+
+  dock.addEventListener("mousemove", (e) => {
+    dockItems.forEach(item => {
+      const rect = item.getBoundingClientRect();
+      const itemCenter = rect.left + rect.width / 2;
+      const dist = Math.abs(e.clientX - itemCenter);
+      
+      // Calculate scale based on distance (max 1.5, min 1.0)
+      const maxDist = 150;
+      let scale = 1;
+      
+      if (dist < maxDist) {
+        scale = 1 + (1 - dist / maxDist) * 0.45;
+      }
+      
+      item.style.transform = `scale(${scale})`;
+      item.style.margin = `0 ${Math.max(4, 12 * (scale - 1))}px`;
+    });
+  });
+
+  dock.addEventListener("mouseleave", () => {
+    dockItems.forEach(item => {
+      item.style.transform = "scale(1)";
+      item.style.margin = "0 4px";
+    });
+  });
+})();
+
