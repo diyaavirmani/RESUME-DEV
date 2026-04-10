@@ -54,50 +54,69 @@ const WindowManager = (function () {
     skills: {
       title: 'skills',
       path: '~/skills',
-      width: 380, height: 360,
+      width: 400, height: 440,
       render: () => `
         <div class="win-section-title">Tech Stack</div>
         
         <div class="skills-section">
-          <h4>Computer Vision</h4>
+          <h4>Technology</h4>
           <div class="skills-chips">
-            <span class="skill-chip">Image Processing</span>
-            <span class="skill-chip">Classification</span>
-            <span class="skill-chip">Detection</span>
+            <span class="skill-chip">Artificial Intelligence</span>
+            <span class="skill-chip">Machine Learning</span>
+            <span class="skill-chip">Deep Learning</span>
+            <span class="skill-chip">Computer Vision</span>
+            <span class="skill-chip">NLP</span>
+            <span class="skill-chip">LLMs</span>
+            <span class="skill-chip">Generative AI</span>
           </div>
         </div>
 
         <div class="skills-section">
-          <h4>ML & Generative AI</h4>
+          <h4>Data Science</h4>
           <div class="skills-chips">
-            <span class="skill-chip">Python</span>
+            <span class="skill-chip">Data Preprocessing</span>
+            <span class="skill-chip">Data Cleaning</span>
+            <span class="skill-chip">Feature Engineering</span>
+            <span class="skill-chip">Model Evaluation</span>
+            <span class="skill-chip">Data Visualization</span>
+          </div>
+        </div>
+
+        <div class="skills-section">
+          <h4>Libraries & Frameworks</h4>
+          <div class="skills-chips">
             <span class="skill-chip">PyTorch</span>
             <span class="skill-chip">TensorFlow</span>
-            <span class="skill-chip">Machine Learning</span>
-            <span class="skill-chip">Generative AI</span>
-            <span class="skill-chip">RAG</span>
-            <span class="skill-chip">LLM</span>
-            <span class="skill-chip">VLM</span>
-            <span class="skill-chip">GPT</span>
+            <span class="skill-chip">Scikit-learn</span>
+            <span class="skill-chip">OpenCV</span>
             <span class="skill-chip">Hugging Face</span>
+            <span class="skill-chip">YOLO</span>
+            <span class="skill-chip">Pandas</span>
+            <span class="skill-chip">NumPy</span>
+            <span class="skill-chip">SpaCy</span>
           </div>
         </div>
 
         <div class="skills-section">
-          <h4>Database</h4>
+          <h4>Data & Analytics Tools</h4>
           <div class="skills-chips">
-            <span class="skill-chip">Redis</span>
-            <span class="skill-chip">PostgreSQL</span>
-            <span class="skill-chip">MySQL</span>
+            <span class="skill-chip">SQL</span>
+            <span class="skill-chip">Jupyter Notebook</span>
+            <span class="skill-chip">Matplotlib</span>
+            <span class="skill-chip">Seaborn</span>
           </div>
         </div>
 
         <div class="skills-section">
-          <h4>Infrastructure & Cloud</h4>
+          <h4>Development & Deployment</h4>
           <div class="skills-chips">
+            <span class="skill-chip">Python</span>
+            <span class="skill-chip">Flask</span>
+            <span class="skill-chip">FastAPI</span>
+            <span class="skill-chip">Streamlit</span>
             <span class="skill-chip">Docker</span>
-            <span class="skill-chip">Git</span>
-            <span class="skill-chip">AWS (S3, SageMaker, Textract)</span>
+            <span class="skill-chip">GitHub</span>
+            <span class="skill-chip">AWS Basics</span>
           </div>
         </div>
       `
