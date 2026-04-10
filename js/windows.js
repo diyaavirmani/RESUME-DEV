@@ -134,21 +134,38 @@ const WindowManager = (function () {
     about: {
       title: 'about me',
       path: '~/about',
-      width: 360, height: 300,
+      width: 440, height: 500,
       render: () => `
-        <div class="win-section-title">Diya Virmani</div>
-        <div class="about-row"><span class="about-key">program</span><span class="about-val">AIDS @ VIPS</span></div>
-        <div class="about-row"><span class="about-key">role</span><span class="about-val">Developer</span></div>
-        <div class="about-row"><span class="about-key">institution</span><span class="about-val">VIPS, New Delhi</span></div>
-        <div class="about-row"><span class="about-key">focus</span><span class="about-val">AI Engineering · Full-Stack · Web3</span></div>
-        <div class="about-row"><span class="about-key">style</span><span class="about-val">Ships fast. Learns by building.</span></div>
-        <div class="about-row"><span class="about-key">location</span><span class="about-val">Delhi, India</span></div>
-        <div class="about-row"><span class="about-key">status</span><span class="about-val" style="color:var(--accent)">Open to opportunities</span></div>
-        <br/>
-        <p style="font-size:11px;color:var(--text-dim);line-height:1.8">
-          I pursue large, technically ambitious projects through hackathons and independent work.
-          Currently deep into LLMs, autonomous agents, and the intersection of AI with real-world infrastructure.
-        </p>
+        <div class="about-container">
+          <div class="about-header">
+            <div class="profile-pic-frame">
+              <img src="assets/img/diya_profile.jpg" alt="Diya Virmani" class="profile-pic" />
+            </div>
+            <div class="profile-main-info">
+              <h2 id="about-name">Diya Virmani</h2>
+              <p class="about-meta">AI & Data Science @ VIPS · New Delhi, PRE FINAL YEAR</p>
+            </div>
+          </div>
+
+          <div class="about-narrative">
+            <p class="narrative-para">
+              Three years ago, I didn't care about tech. Then came a summer break, some tutorials, a lot of coffee, and a decision to just try. I traded hobbies for learning hours, built things that worked and things that really didn't, and somewhere in that mess found something worth pursuing.
+            </p>
+            
+            <p class="narrative-para">
+              Now I'm a 2x hackathon winner, finalist at a handful of national competitions, and Operations Head at E-Cell VIPS — a role I'm about to pass on. Still figuring things out, but shipping along the way.
+            </p>
+
+            <p class="narrative-para h-dim">
+              When I'm not pushing commits, I'm at the gym, lost in a book, or somewhere in a fictional world I refuse to leave. Reconnecting with the hobbies I gave up. Turns out you don't have to choose.
+            </p>
+          </div>
+
+          <div class="about-footer">
+            <div class="footer-motto">Coffee-fueled · Consistency-driven</div>
+            <div class="footer-ps">P.S. I can debate without a script.</div>
+          </div>
+        </div>
       `
     },
 
