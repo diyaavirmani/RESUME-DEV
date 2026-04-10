@@ -401,7 +401,7 @@ const WindowManager = (function () {
     let dx, dy, dragging = false;
 
     bar.addEventListener('mousedown', e => {
-      if (e.target.classList.contains('win-btn')) return;
+      if (e.target.closest('.win-btn')) return;
       dragging = true;
       dx = e.clientX - win.offsetLeft;
       dy = e.clientY - win.offsetTop;

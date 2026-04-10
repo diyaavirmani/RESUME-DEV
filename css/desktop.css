@@ -352,28 +352,32 @@
 .folder-body {
   width: 52px;
   height: 46px;
-  background: rgba(0, 255, 170, 0.04);
-  border: 1px solid var(--border);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-md);
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  transition: background var(--t-normal), border-color var(--t-normal), box-shadow var(--t-normal);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: background var(--t-normal), border-color var(--t-normal), box-shadow var(--t-normal), transform var(--t-normal);
 }
 
 /* folder tab */
 .folder-body::before {
   content: '';
   position: absolute;
-  top: -5px;
+  top: -6px;
   left: 5px;
-  width: 16px;
-  height: 5px;
-  background: rgba(0, 255, 170, 0.1);
-  border: 1px solid var(--border);
+  width: 18px;
+  height: 7px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
   border-bottom: none;
-  border-radius: 2px 2px 0 0;
+  border-radius: 4px 4px 0 0;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .folder:hover .folder-body {
