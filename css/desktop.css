@@ -481,7 +481,7 @@
 /* GitHub card */
 #gh-graph-wrap {
   position: relative;
-  height: 44px;
+  height: 52px;
   margin-bottom: 8px;
 }
 
@@ -503,6 +503,29 @@
 #gh-loading.hidden {
   display: none;
 }
+
+.gh-week-grid {
+  display: flex;
+  flex-wrap: wrap; /* Fallback for older browsers */
+  display: grid;
+  grid-template-columns: repeat(52, 1fr);
+  grid-auto-flow: column;
+  grid-template-rows: repeat(7, 1fr);
+  gap: 2px;
+  height: 100%;
+}
+
+.gh-day {
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 1px;
+}
+
+.gh-day.l1 { background: #0e4429; }
+.gh-day.l2 { background: #006d32; }
+.gh-day.l3 { background: #26a641; }
+.gh-day.l4 { background: #39d353; }
 
 #gh-stats-row {
   display: flex;

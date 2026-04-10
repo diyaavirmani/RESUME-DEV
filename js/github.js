@@ -94,7 +94,7 @@
       renderGrid(matrix);
 
       // Scroll horizontal grid completely to the right so we see recent days!
-      const wrap = document.getElementById('ui-gh-wrap');
+      const wrap = document.getElementById('gh-graph-wrap');
       if (wrap) {
         // give dom a moment to lay out
         setTimeout(() => {
