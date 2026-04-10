@@ -126,7 +126,6 @@ const WindowManager = (function () {
             <span class="skill-chip">Smart Contracts (Solidity)</span>
             <span class="skill-chip">wagmi / viem</span>
             <span class="skill-chip">RainbowKit</span>
-            <span class="skill-chip">Monad Testnet</span>
           </div>
         </div>
       `

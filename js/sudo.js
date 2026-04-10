@@ -22,7 +22,7 @@
     '  you clearly know what you\'re doing.',
     '',
     '  Fun fact: she debugged a Solidity',
-    '  reentrancy bug at 3am during Monad Blitz.',
+    '  reentrancy bug at 3am during a major buildathon.',
     '',
     '  Hire her. You won\'t regret it.',
     '',
