@@ -1,9 +1,8 @@
 /* ═══════════════════════════════════════════════
-   GITHUB  –  Sparkline + Live stats for sidebar
+   GITHUB  –  Live GitHub Grid Stats for sidebar
 ═══════════════════════════════════════════════ */
 (function () {
-  const canvas    = document.getElementById('gh-sparkline');
-  const ctx       = canvas.getContext('2d');
+  const gridEl    = document.getElementById('ui-gh-grid');
   const loadingEl = document.getElementById('gh-loading');
   const totalEl   = document.getElementById('gh-total');
   const streakEl  = document.getElementById('gh-streak');
@@ -11,47 +10,6 @@
 
   // We expose this so windows.js can render the identical real grid
   window._ghContribs = [];
-
-  /* ── Draw bar sparkline on the canvas ── */
-  function drawSparkline(data) {
-    if (!canvas || !ctx) return;
-    const dpr = window.devicePixelRatio || 1;
-    const w   = canvas.clientWidth;
-    const h   = canvas.clientHeight;
-
-    canvas.width  = w * dpr;
-    canvas.height = h * dpr;
-    ctx.scale(dpr, dpr);
-
-    const max  = Math.max(...data) || 1; // Prevent div by 0
-    const gap  = 1.5;
-    const barW = (w - gap * (data.length - 1)) / data.length;
-
-    // We only render up to the latest 52 datapoints if more exist
-    const renderData = data.slice(-52);
-
-    renderData.forEach((val, i) => {
-      // Ensure minimum 1px height so a bar is visible for 0 commits
-      const rawH = (val / max) * (h - 6);
-      const barH = val === 0 ? 1 : Math.max(2, rawH); 
-      const x    = i * (barW + gap);
-      const y    = h - barH;
-
-      /* gradient fill inside the bars matching the UI mockup */
-      const grad = ctx.createLinearGradient(0, y, 0, h);
-      grad.addColorStop(0, '#6c63ff');
-      grad.addColorStop(1, 'rgba(108, 99, 255, 0.15)');
-
-      ctx.fillStyle = grad;
-      ctx.beginPath();
-      if (ctx.roundRect) {
-        ctx.roundRect(x, y, Math.max(barW, 1), barH, 1);
-      } else {
-        ctx.rect(x, y, Math.max(barW, 1), barH);
-      }
-      ctx.fill();
-    });
-  }
 
   /* ── Animate a number from 0 → target ── */
   function animateNum(el, target) {
@@ -66,6 +24,25 @@
       }
       el.textContent = Math.round(cur);
     }, 35);
+  }
+
+  /* ── Render HTML Grid Cells ── */
+  function renderGrid(matrix) {
+    if (!gridEl) return;
+    gridEl.innerHTML = ''; // Keep it clean
+    
+    // Matrix is array of weeks, containing arrays of days
+    matrix.forEach(week => {
+      week.forEach(val => {
+        const cell = document.createElement('div');
+        cell.className = 'gh-day';
+        if (val > 0) {
+          const lvl = val < 2 ? 1 : val < 4 ? 2 : val < 7 ? 3 : 4;
+          cell.classList.add('l' + lvl);
+        }
+        gridEl.appendChild(cell);
+      });
+    });
   }
 
   /* ── Fetch Real Data ── */
@@ -94,34 +71,36 @@
       }
 
       if (!contribData || !contribData.contributions) {
-        // Fallback to empty flatline if proxy is down
-        drawSparkline(new Array(52).fill(0));
         return;
       }
 
-      // Format for windows.js dynamic mapping
       const matrix = [];
-      const weeklyTotals = [];
       let flatDays = [];
 
       contribData.contributions.forEach(week => {
-        let weekSum = 0;
         let weekArr = [];
         week.forEach(day => {
           const count = day.contributionCount;
-          weekSum += count;
           weekArr.push(count);
           flatDays.push(count);
         });
         matrix.push(weekArr);
-        weeklyTotals.push(weekSum);
       });
 
       // Export for the pop-up modal view
       window._ghContribs = matrix;
 
-      // Draw sparkline with weekly totals
-      drawSparkline(weeklyTotals);
+      // Draw horizontal grid in sidebar
+      renderGrid(matrix);
+
+      // Scroll horizontal grid completely to the right so we see recent days!
+      const wrap = document.getElementById('ui-gh-wrap');
+      if (wrap) {
+        // give dom a moment to lay out
+        setTimeout(() => {
+           wrap.scrollLeft = wrap.scrollWidth;
+        }, 50);
+      }
 
       // Animate total commits this year
       if (totalEl) animateNum(totalEl, contribData.totalContributions || 0);
@@ -146,10 +125,10 @@
       if (streakEl) animateNum(streakEl, streak);
 
       // Tell window.js to re-render github window if it's already open
-      const grid = document.getElementById('win-gh-grid');
-      if (grid && typeof window.WindowManager !== 'undefined') {
+      const winGrid = document.getElementById('win-gh-grid');
+      if (winGrid && typeof window.WindowManager !== 'undefined') {
         const ghWin = WindowManager.getOpenWindows().github;
-        if (ghWin) ghWin.innerHTML = ghWin.innerHTML; // Simple but hacky force redraw or leave it
+        if (ghWin) ghWin.innerHTML = ghWin.innerHTML; 
       }
 
     } catch (err) {
@@ -161,18 +140,4 @@
   /* ── Init ── */
   fetchGithubStats();
 
-  /* Redraw on resize */
-  let resizeTimer;
-  window.addEventListener('resize', () => {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => {
-      if (loadingEl && loadingEl.style.display === 'none') {
-        // Redraw with the window._ghContribs we cached
-        if (window._ghContribs && window._ghContribs.length > 0) {
-          const sums = window._ghContribs.map(w => w.reduce((a, b) => a + b, 0));
-          drawSparkline(sums);
-        }
-      }
-    }, 200);
-  });
 })();

@@ -99,8 +99,9 @@ const WindowManager = (function () {
       width: 360, height: 300,
       render: () => `
         <div class="win-section-title">Diya Virmani</div>
-        <div class="about-row"><span class="about-key">institution</span><span class="about-val">VIPS, New Delhi</span></div>
+        <div class="about-row"><span class="about-key">program</span><span class="about-val">AIDS @ VIPS</span></div>
         <div class="about-row"><span class="about-key">role</span><span class="about-val">Developer</span></div>
+        <div class="about-row"><span class="about-key">institution</span><span class="about-val">VIPS, New Delhi</span></div>
         <div class="about-row"><span class="about-key">focus</span><span class="about-val">AI Engineering · Full-Stack · Web3</span></div>
         <div class="about-row"><span class="about-key">style</span><span class="about-val">Ships fast. Learns by building.</span></div>
         <div class="about-row"><span class="about-key">location</span><span class="about-val">Delhi, India</span></div>
@@ -116,7 +117,7 @@ const WindowManager = (function () {
     hackathons: {
       title: 'hackathons',
       path: '~/hackathons',
-      width: 400, height: 340,
+      width: 440, height: 520,
       render: () => `
         <div class="win-section-title">Hackathon History</div>
 
@@ -125,7 +126,8 @@ const WindowManager = (function () {
           <div class="hack-info">
             <h4>Vibeathon</h4>
             <div class="hack-date">APRIL 2026 · ONLINE</div>
-            <p>Built <strong style="color:var(--text-primary)">Veritas</strong> — autonomous AI journalism pipeline. Groq + LLaMA 3 for article generation, cross-source fact-checking, editorial frontend.</p>
+            <p>Built <strong style="color:var(--text-primary)">Veritas</strong> — autonomous AI journalism pipeline. Groq + LLaMA 3 for article generation, cross-source fact-checking, editorial frontend. Deployed on Render.</p>
+            <div class="tag-row"><span class="tag">Python</span><span class="tag">Groq</span><span class="tag">LLaMA 3</span><span class="tag">FastAPI</span><span class="tag">React</span></div>
           </div>
         </div>
 
@@ -134,7 +136,48 @@ const WindowManager = (function () {
           <div class="hack-info">
             <h4>Monad Blitz — New Delhi</h4>
             <div class="hack-date">MARCH 28, 2026 · IRL · 1 DAY</div>
-            <p>Built <strong style="color:var(--text-primary)">BlitzBuddy</strong> with teammate Ankit Singh Raghuvanshi. Onchain micro-bounty platform on Monad Testnet. Survived a mid-hackathon laptop crash.</p>
+            <p>Built <strong style="color:var(--text-primary)">BlitzBuddy</strong> with teammate Ankit Singh Raghuvanshi. Onchain micro-bounty platform on Monad Testnet. Solidity escrow with 5-state machine + ReentrancyGuard. Survived a mid-hackathon laptop crash.</p>
+            <div class="tag-row"><span class="tag">Solidity</span><span class="tag">Next.js</span><span class="tag">wagmi</span><span class="tag">Monad</span></div>
+          </div>
+        </div>
+
+        <div class="hackathon-item">
+          <div class="hack-dot" style="background:var(--amber)"></div>
+          <div class="hack-info">
+            <h4>FrostByte Hack <span style="color:var(--amber);font-size:9px;letter-spacing:0.08em">· THEME-BASED WINNER · $100</span></h4>
+            <div class="hack-date">DEVPOST · ONLINE</div>
+            <p>Built <strong style="color:var(--text-primary)">Scam Bait AI</strong> — an AI system that autonomously engages and wastes scammers' time. Won the theme category.</p>
+            <div class="tag-row"><span class="tag">AI</span><span class="tag">Python</span><span class="tag">LLM</span></div>
+          </div>
+        </div>
+
+        <div class="hackathon-item">
+          <div class="hack-dot" style="background:var(--pink)"></div>
+          <div class="hack-info">
+            <h4>Hacktivate <span style="color:var(--pink);font-size:9px;letter-spacing:0.08em">· 2ND PLACE</span></h4>
+            <div class="hack-date">ONLINE</div>
+            <p>Built <strong style="color:var(--text-primary)">Scam Bait AI</strong> — secured 2nd position overall with an AI that flips the script on scammers by keeping them engaged autonomously.</p>
+            <div class="tag-row"><span class="tag">AI</span><span class="tag">Python</span><span class="tag">LLM</span></div>
+          </div>
+        </div>
+
+        <div class="hackathon-item">
+          <div class="hack-dot" style="background:var(--purple)"></div>
+          <div class="hack-info">
+            <h4>GUVI — India AI Impact Buildathon <span style="color:var(--purple);font-size:9px;letter-spacing:0.08em">· TOP 2% FINALIST</span></h4>
+            <div class="hack-date">NATIONAL · ONLINE</div>
+            <p>Top 2% out of all national submissions with <strong style="color:var(--text-primary)">Scam Bait AI</strong> — recognized for real-world AI impact in consumer protection.</p>
+            <div class="tag-row"><span class="tag">AI</span><span class="tag">Python</span><span class="tag">LLM</span></div>
+          </div>
+        </div>
+
+        <div class="hackathon-item">
+          <div class="hack-dot" style="background:var(--blue)"></div>
+          <div class="hack-info">
+            <h4>National Student Change Initiative Fest <span style="color:var(--blue);font-size:9px;letter-spacing:0.08em">· FINALIST</span></h4>
+            <div class="hack-date">NATIONAL · IRL</div>
+            <p>Finalist with <strong style="color:var(--text-primary)">Scam Bait AI</strong> — presented to a national jury as a social impact solution for digital fraud prevention.</p>
+            <div class="tag-row"><span class="tag">AI</span><span class="tag">Python</span><span class="tag">LLM</span></div>
           </div>
         </div>
       `
@@ -146,9 +189,9 @@ const WindowManager = (function () {
       width: 500, height: 320,
       render: () => `
         <div class="win-section-title">GitHub Activity</div>
-        <div id="win-gh-grid-wrap">
+        <div id="win-gh-grid-wrap" style="width:100%;overflow-x:auto;">
           <p style="font-size:10px;color:var(--text-dim);margin-bottom:10px">Contribution graph — past 52 weeks</p>
-          <div class="gh-week-grid" id="win-gh-grid"></div>
+          <div class="gh-week-grid" id="win-gh-grid" style="min-width:390px;"></div>
           <div style="display:flex;gap:6px;align-items:center;margin-top:10px;font-size:9px;color:var(--text-dim)">
             <span>less</span>
             <div style="width:10px;height:10px;border-radius:1px;background:rgba(0,255,170,0.06)"></div>
@@ -165,23 +208,29 @@ const WindowManager = (function () {
         const grid = document.getElementById('win-gh-grid');
         if (!grid) return;
         const levels = ['', 'l1', 'l2', 'l3', 'l4'];
-        for (let w = 0; w < 53; w++) {
-          for (let d = 0; d < 7; d++) {
-            const cell = document.createElement('div');
-            cell.className = 'gh-day';
-            // Use cached data if available
-            if (window._ghContribs && window._ghContribs[w]) {
-              const val = window._ghContribs[w][d] || 0;
-              if (val > 0) {
-                const lvl = val < 2 ? 1 : val < 4 ? 2 : val < 7 ? 3 : 4;
-                cell.classList.add(`l${lvl}`);
-              }
-            } else {
-              // Fallback: random realistic-looking data
+        
+        // Use live array if we have it from github.js
+        if (window._ghContribs && window._ghContribs.length > 0) {
+          window._ghContribs.forEach(week => {
+             week.forEach(val => {
+               const cell = document.createElement('div');
+               cell.className = 'gh-day';
+               if (val > 0) {
+                 const lvl = val < 2 ? 1 : val < 4 ? 2 : val < 7 ? 3 : 4;
+                 cell.classList.add('l' + lvl);
+               }
+               grid.appendChild(cell);
+             });
+          });
+        } else {
+          for (let w = 0; w < 53; w++) {
+            for (let d = 0; d < 7; d++) {
+              const cell = document.createElement('div');
+              cell.className = 'gh-day';
               const r = Math.random();
               if (r > 0.72) cell.classList.add(levels[Math.floor(Math.random() * 4) + 1]);
+              grid.appendChild(cell);
             }
-            grid.appendChild(cell);
           }
         }
       }
@@ -194,7 +243,7 @@ const WindowManager = (function () {
       render: () => `
         <div class="win-section-title">Get in Touch</div>
 
-        <a class="contact-link" href="https://www.linkedin.com/in/diya-virmani-3bb62b1a0/" target="_blank">
+        <a class="contact-link" href="https://linkedin.com/in/diya-virmani-3bb62b1a0" target="_blank">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="#0a66c2">
             <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/>
             <circle cx="4" cy="4" r="2"/>
@@ -212,7 +261,7 @@ const WindowManager = (function () {
           <span>x.com/diyasversion</span>
         </a>
 
-        <a class="contact-link" href="https://www.instagram.com/diyaa.virmani/?hl=en" target="_blank">
+        <a class="contact-link" href="https://instagram.com/diyaa.virmani/?hl=en" target="_blank">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#e1306c" stroke-width="2">
             <rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/>
             <circle cx="17.5" cy="6.5" r="1" fill="#e1306c" stroke="none"/>
@@ -225,7 +274,6 @@ const WindowManager = (function () {
 
   /* ─── Create window ─── */
   function create(id) {
-    // If already open, focus it instead
     if (openWindows[id]) {
       focus(openWindows[id]);
       return;
@@ -238,7 +286,6 @@ const WindowManager = (function () {
     win.className = 'os-window';
     win.dataset.winId = id;
 
-    // Position — cascade from center
     const baseX = Math.max(40, (window.innerWidth  - def.width)  / 2 + (Object.keys(openWindows).length * 24));
     const baseY = Math.max(40, (window.innerHeight - def.height) / 2 + (Object.keys(openWindows).length * 24));
     win.style.cssText = `left:${baseX}px; top:${baseY}px; width:${def.width}px; height:${def.height}px;`;
@@ -263,13 +310,11 @@ const WindowManager = (function () {
     makeDraggable(win);
     makeResizable(win);
 
-    // Wire buttons
     win.querySelector('[data-action="close"]').addEventListener('click', () => close(win, id));
     win.querySelector('[data-action="min"]').addEventListener('click', () => close(win, id));
     win.querySelector('[data-action="max"]').addEventListener('click', () => toggleMax(win, def));
     win.addEventListener('mousedown', () => focus(win));
 
-    // afterRender hook
     if (def.afterRender) {
       requestAnimationFrame(() => {
         requestAnimationFrame(() => def.afterRender());
@@ -330,7 +375,6 @@ const WindowManager = (function () {
       if (!dragging) return;
       let nx = e.clientX - dx;
       let ny = e.clientY - dy;
-      // Clamp within viewport
       const mh = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--menubar-h')) || 28;
       nx = Math.max(0, Math.min(window.innerWidth  - win.offsetWidth,  nx));
       ny = Math.max(mh, Math.min(window.innerHeight - 60, ny));
@@ -371,6 +415,5 @@ const WindowManager = (function () {
     });
   }
 
-  /* ─── Public API ─── */
   return { create };
 })();
