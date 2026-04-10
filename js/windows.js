@@ -98,9 +98,9 @@ const WindowManager = (function () {
       path: '~/about',
       width: 360, height: 300,
       render: () => `
-        <div class="win-section-title">Diya Sharma</div>
+        <div class="win-section-title">Diya Virmani</div>
         <div class="about-row"><span class="about-key">institution</span><span class="about-val">VIPS, New Delhi</span></div>
-        <div class="about-row"><span class="about-key">club</span><span class="about-val">Data Science Club — VIPS</span></div>
+        <div class="about-row"><span class="about-key">role</span><span class="about-val">Developer</span></div>
         <div class="about-row"><span class="about-key">focus</span><span class="about-val">AI Engineering · Full-Stack · Web3</span></div>
         <div class="about-row"><span class="about-key">style</span><span class="about-val">Ships fast. Learns by building.</span></div>
         <div class="about-row"><span class="about-key">location</span><span class="about-val">Delhi, India</span></div>
