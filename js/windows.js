@@ -25,7 +25,7 @@ const WindowManager = (function () {
             <span class="tag">Python</span><span class="tag">Groq</span><span class="tag">LLaMA 3</span>
             <span class="tag">FastAPI</span><span class="tag">React</span><span class="tag">Render</span>
           </div>
-          <a class="proj-link" href="https://github.com/diyavora/veritas" target="_blank">→ View on GitHub</a>
+          <a class="proj-link" href="https://github.com/diyaavirmani/veritas" target="_blank">→ View on GitHub</a>
         </div>
 
         <div class="project-card">
@@ -36,7 +36,7 @@ const WindowManager = (function () {
             <span class="tag">Solidity</span><span class="tag">Next.js</span><span class="tag">wagmi</span>
             <span class="tag">viem</span><span class="tag">RainbowKit</span><span class="tag">Monad</span>
           </div>
-          <a class="proj-link" href="https://github.com/diyavora/blitzbuddy" target="_blank">→ View on GitHub</a>
+          <a class="proj-link" href="https://github.com/diyaavirmani/blitzbuddy" target="_blank">→ View on GitHub</a>
         </div>
 
         <div class="project-card">
@@ -194,30 +194,30 @@ const WindowManager = (function () {
       render: () => `
         <div class="win-section-title">Get in Touch</div>
 
-        <a class="contact-link" href="https://linkedin.com/in/diyavora" target="_blank">
+        <a class="contact-link" href="https://www.linkedin.com/in/diya-virmani-3bb62b1a0/" target="_blank">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="#0a66c2">
             <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/>
             <circle cx="4" cy="4" r="2"/>
           </svg>
-          <span>linkedin.com/in/diyavora</span>
+          <span>linkedin.com/in/diya-virmani</span>
         </a>
 
-        <a class="contact-link" href="https://github.com/diyavora" target="_blank">
+        <a class="contact-link" href="https://github.com/diyaavirmani" target="_blank">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.49.5.09.68-.22.68-.48v-1.7C6.73 19.91 6.14 18 6.14 18c-.45-1.15-1.1-1.46-1.1-1.46-.9-.62.07-.61.07-.61 1 .07 1.52 1.02 1.52 1.02.88 1.51 2.31 1.07 2.87.82.09-.64.35-1.07.63-1.32-2.19-.25-4.5-1.1-4.5-4.88 0-1.08.39-1.96 1.02-2.65-.1-.25-.44-1.25.1-2.61 0 0 .83-.27 2.73 1.02A9.5 9.5 0 0 1 12 8.84c.84 0 1.69.11 2.48.33 1.89-1.29 2.72-1.02 2.72-1.02.54 1.36.2 2.36.1 2.61.64.69 1.02 1.57 1.02 2.65 0 3.79-2.31 4.62-4.51 4.87.36.31.67.92.67 1.85v2.74c0 .27.18.58.69.48A10.01 10.01 0 0 0 22 12c0-5.52-4.48-10-10-10z"/></svg>
-          <span>github.com/diyavora</span>
+          <span>github.com/diyaavirmani</span>
         </a>
 
-        <a class="contact-link" href="https://x.com/diyavora" target="_blank">
+        <a class="contact-link" href="https://x.com/diyasversion" target="_blank">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.261 5.636L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-          <span>x.com/diyavora</span>
+          <span>x.com/diyasversion</span>
         </a>
 
-        <a class="contact-link" href="https://instagram.com/diyavora" target="_blank">
+        <a class="contact-link" href="https://www.instagram.com/diyaa.virmani/?hl=en" target="_blank">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#e1306c" stroke-width="2">
             <rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/>
             <circle cx="17.5" cy="6.5" r="1" fill="#e1306c" stroke="none"/>
           </svg>
-          <span>instagram.com/diyavora</span>
+          <span>instagram.com/diyaa.virmani</span>
         </a>
       `
     }
