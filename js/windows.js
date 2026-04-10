@@ -54,7 +54,7 @@ const WindowManager = (function () {
     skills: {
       title: 'skills',
       path: '~/skills',
-      width: 400, height: 440,
+      width: 400, height: 500,
       render: () => `
         <div class="win-section-title">Tech Stack</div>
         
@@ -117,6 +117,16 @@ const WindowManager = (function () {
             <span class="skill-chip">Docker</span>
             <span class="skill-chip">GitHub</span>
             <span class="skill-chip">AWS Basics</span>
+          </div>
+        </div>
+
+        <div class="skills-section">
+          <h4>Web3</h4>
+          <div class="skills-chips">
+            <span class="skill-chip">Smart Contracts (Solidity)</span>
+            <span class="skill-chip">wagmi / viem</span>
+            <span class="skill-chip">RainbowKit</span>
+            <span class="skill-chip">Monad Testnet</span>
           </div>
         </div>
       `
