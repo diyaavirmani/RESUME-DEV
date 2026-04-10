@@ -309,19 +309,37 @@
 
 /* ── Folders ── */
 #folders-grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none; /* Let clicks pass through to background if needed */
+  z-index: 10;
+}
+
+.folder {
+  position: absolute;
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px 32px;
-  margin-top: 48px;
-  max-width: 440px;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  pointer-events: auto; /* Re-enable clicks for items */
+  transition: transform var(--t-normal), filter var(--t-normal);
+  animation: float-y 4s ease-in-out infinite;
+}
+
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
 }
 
 .folder:nth-child(even) {
-  transform: translateY(12px);
+  animation-duration: 5s;
+  animation-delay: -1s;
 }
 
-.folder:nth-child(3n+1) {
-  margin-left: 10px;
+.folder:nth-child(3n) {
+  animation-duration: 6s;
+  animation-delay: -2.5s;
 }
 
 .folder {

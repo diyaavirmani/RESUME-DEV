@@ -93,4 +93,41 @@
     });
   }
 
+  /* ════════════════════════════════
+     FOLDER RANDOMIZATION (Scattering)
+  ════════════════════════════════ */
+  function randomizeFolders() {
+    const folders = document.querySelectorAll('.folder');
+    if (!folders.length) return;
+
+    // Define a "Center-Right Safe Zone" to avoid hero text & sidebar
+    // Viewport percentages
+    const minX = 40; // Starts after hero bio
+    const maxX = 78; // Ends before sidebar
+    const minY = 12; // Below menubar
+    const maxY = 82; // Above dock
+
+    folders.forEach((folder, idx) => {
+      // Random position within safe zone
+      const randomX = minX + Math.random() * (maxX - minX);
+      const randomY = minY + Math.random() * (maxY - minY);
+      
+      // Random subtle rotation for organic feel
+      const randomRot = (Math.random() - 0.5) * 12; // -6deg to +6deg
+
+      folder.style.left = `${randomX}%`;
+      folder.style.top = `${randomY}%`;
+      folder.style.filter = `hue-rotate(${idx * 15}deg)`; // Subtle color variation
+      
+      // We apply the rotation via a wrapper style so it doesn't conflict with the float anim
+      const body = folder.querySelector('.folder-body');
+      if (body) {
+        body.style.transform = `rotate(${randomRot}deg)`;
+      }
+    });
+  }
+
+  // Initialize positions
+  randomizeFolders();
+
 })();
