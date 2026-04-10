@@ -1,54 +1,82 @@
-/* ═══════════════════════════════════════════
-   SUDO  –  Access-granted overlay
-   ═══════════════════════════════════════════ */
-(function () {
-  var overlay   = document.getElementById('sudo-overlay');
-  var sudoLines = document.getElementById('sudo-lines');
-  var closeBtn  = document.getElementById('sudo-close');
+/* ═══════════════════════════════════════════════
+   SUDO EASTER EGG
+   Type "sudo" anywhere on keyboard → secret screen
+═══════════════════════════════════════════════ */
 
-  var msgs = [
-    '> sudo access granted',
-    '> welcome back, diya',
-    '> loading workspace…',
-    '> all systems ready ✓',
+(function () {
+  const overlay  = document.getElementById('sudo-overlay');
+  const linesEl  = document.getElementById('sudo-lines');
+  const closeBtn = document.getElementById('sudo-close');
+
+  const TARGET  = 'sudo';
+  let   buffer  = '';
+  let   isOpen  = false;
+
+  const SUDO_LINES = [
+    'root@diya-os:~# accessing secured partition…',
+    'root@diya-os:~# decrypting talent.enc …',
+    'root@diya-os:~# ██████████████ 100%',
+    'root@diya-os:~# cat /etc/diya/secret.txt',
+    '',
+    '  Hi recruiter 👾 since you typed "sudo"',
+    '  you clearly know what you\'re doing.',
+    '',
+    '  Fun fact: she debugged a Solidity',
+    '  reentrancy bug at 3am during Monad Blitz.',
+    '',
+    '  Hire her. You won\'t regret it.',
+    '',
+    'root@diya-os:~# ■',
   ];
 
-  var typed = false;
+  /* ─── Keyboard listener ─── */
+  document.addEventListener('keydown', e => {
+    if (isOpen) return;
 
-  function typeMessages() {
-    if (typed) return;
-    typed = true;
-    var idx = 0;
-
-    function next() {
-      if (idx >= msgs.length) return;
-      var div = document.createElement('div');
-      div.className = 's-line';
-      div.textContent = msgs[idx];
-      sudoLines.appendChild(div);
-      idx++;
-      setTimeout(next, 280);
-    }
-
-    setTimeout(next, 400);
-  }
-
-  /* Watch for .visible class */
-  var observer = new MutationObserver(function (mutations) {
-    mutations.forEach(function (m) {
-      if (overlay.classList.contains('open')) {
-        typeMessages();
+    // Only capture printable chars, ignore modifier-only
+    if (e.key.length === 1 && !e.ctrlKey && !e.altKey && !e.metaKey) {
+      buffer += e.key.toLowerCase();
+      if (buffer.length > TARGET.length) {
+        buffer = buffer.slice(-TARGET.length);
       }
-    });
+      if (buffer === TARGET) {
+        buffer = '';
+        openSudo();
+      }
+    }
   });
 
-  observer.observe(overlay, { attributes: true, attributeFilter: ['class'] });
+  /* ─── Open ─── */
+  function openSudo() {
+    isOpen = true;
+    linesEl.innerHTML = '';
+    overlay.classList.add('open');
 
-  /* Close button */
-  closeBtn.addEventListener('click', function () {
+    let delay = 100;
+    SUDO_LINES.forEach(text => {
+      setTimeout(() => {
+        const span = document.createElement('span');
+        span.className = 's-line';
+        span.textContent = text;
+        linesEl.appendChild(span);
+        // auto-scroll
+        linesEl.scrollTop = linesEl.scrollHeight;
+      }, delay);
+      delay += text === '' ? 60 : 110;
+    });
+  }
+
+  /* ─── Close ─── */
+  function closeSudo() {
     overlay.classList.remove('open');
-    overlay.style.visibility = 'hidden';
-    overlay.style.opacity = '0';
-    observer.disconnect();
+    isOpen = false;
+    buffer = '';
+  }
+
+  closeBtn.addEventListener('click', closeSudo);
+
+  // Also close on Escape
+  document.addEventListener('keydown', e => {
+    if (isOpen && e.key === 'Escape') closeSudo();
   });
 })();

@@ -174,7 +174,7 @@ const WindowManager = (function () {
               const val = window._ghContribs[w][d] || 0;
               if (val > 0) {
                 const lvl = val < 2 ? 1 : val < 4 ? 2 : val < 7 ? 3 : 4;
-                cell.classList.add(\`l\${lvl}\`);
+                cell.classList.add(`l${lvl}`);
               }
             } else {
               // Fallback: random realistic-looking data
@@ -241,21 +241,21 @@ const WindowManager = (function () {
     // Position — cascade from center
     const baseX = Math.max(40, (window.innerWidth  - def.width)  / 2 + (Object.keys(openWindows).length * 24));
     const baseY = Math.max(40, (window.innerHeight - def.height) / 2 + (Object.keys(openWindows).length * 24));
-    win.style.cssText = \`left:\${baseX}px; top:\${baseY}px; width:\${def.width}px; height:\${def.height}px;\`;
+    win.style.cssText = `left:${baseX}px; top:${baseY}px; width:${def.width}px; height:${def.height}px;`;
 
-    win.innerHTML = \`
+    win.innerHTML = `
       <div class="win-titlebar">
         <div class="win-controls">
           <button class="win-btn win-btn-close" data-action="close" title="Close"></button>
           <button class="win-btn win-btn-min"   data-action="min"   title="Minimize"></button>
           <button class="win-btn win-btn-max"   data-action="max"   title="Maximize"></button>
         </div>
-        <div class="win-title">\${def.title}</div>
-        <div class="win-path">\${def.path}</div>
+        <div class="win-title">${def.title}</div>
+        <div class="win-path">${def.path}</div>
       </div>
-      <div class="win-content">\${def.render()}</div>
+      <div class="win-content">${def.render()}</div>
       <div class="win-resize"></div>
-    \`;
+    `;
 
     layer.appendChild(win);
     openWindows[id] = win;
