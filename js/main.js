@@ -100,26 +100,43 @@
     const folders = document.querySelectorAll('.folder');
     if (!folders.length) return;
 
+    const placed = [];
+    const minDistance = 15; // Minimum % distance between folders
+
     // Define a "Center-Right Safe Zone" to avoid hero text & sidebar
-    // Viewport percentages
-    const minX = 40; // Starts after hero bio
-    const maxX = 78; // Ends before sidebar
-    const minY = 12; // Below menubar
-    const maxY = 82; // Above dock
+    const minX = 42; 
+    const maxX = 75; 
+    const minY = 15; 
+    const maxY = 75; 
 
     folders.forEach((folder, idx) => {
-      // Random position within safe zone
-      const randomX = minX + Math.random() * (maxX - minX);
-      const randomY = minY + Math.random() * (maxY - minY);
+      let randomX, randomY, collision;
+      let attempts = 0;
+
+      do {
+        collision = false;
+        randomX = minX + Math.random() * (maxX - minX);
+        randomY = minY + Math.random() * (maxY - minY);
+
+        // Check against all already placed folders
+        for (const pos of placed) {
+          const dist = Math.sqrt(Math.pow(pos.x - randomX, 2) + Math.pow(pos.y - randomY, 2));
+          if (dist < minDistance) {
+            collision = true;
+            break;
+          }
+        }
+        attempts++;
+      } while (collision && attempts < 50);
+
+      placed.push({ x: randomX, y: randomY });
       
-      // Random subtle rotation for organic feel
-      const randomRot = (Math.random() - 0.5) * 12; // -6deg to +6deg
+      const randomRot = (Math.random() - 0.5) * 8; 
 
       folder.style.left = `${randomX}%`;
       folder.style.top = `${randomY}%`;
-      folder.style.filter = `hue-rotate(${idx * 15}deg)`; // Subtle color variation
+      folder.style.filter = `hue-rotate(${idx * 12}deg)`; 
       
-      // We apply the rotation via a wrapper style so it doesn't conflict with the float anim
       const body = folder.querySelector('.folder-body');
       if (body) {
         body.style.transform = `rotate(${randomRot}deg)`;

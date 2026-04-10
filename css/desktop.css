@@ -324,12 +324,6 @@
   cursor: pointer;
   pointer-events: auto; /* Re-enable clicks for items */
   transition: transform var(--t-normal), filter var(--t-normal);
-  animation: float-y 4s ease-in-out infinite;
-}
-
-@keyframes float-y {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
 }
 
 .folder:nth-child(even) {
