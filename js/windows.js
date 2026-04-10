@@ -57,37 +57,47 @@ const WindowManager = (function () {
       width: 380, height: 360,
       render: () => `
         <div class="win-section-title">Tech Stack</div>
+        
         <div class="skills-section">
-          <h4>AI / ML</h4>
+          <h4>Computer Vision</h4>
           <div class="skills-chips">
-            <span class="skill-chip">Python</span><span class="skill-chip">LLMs</span>
-            <span class="skill-chip">Groq</span><span class="skill-chip">LLaMA 3</span>
-            <span class="skill-chip">U-Net</span><span class="skill-chip">HRNet</span>
-            <span class="skill-chip">LSTM</span><span class="skill-chip">Rasterio</span>
+            <span class="skill-chip">Image Processing</span>
+            <span class="skill-chip">Classification</span>
+            <span class="skill-chip">Detection</span>
           </div>
         </div>
+
         <div class="skills-section">
-          <h4>Full-Stack</h4>
+          <h4>ML & Generative AI</h4>
           <div class="skills-chips">
-            <span class="skill-chip">React</span><span class="skill-chip">Next.js</span>
-            <span class="skill-chip">FastAPI</span><span class="skill-chip">PostgreSQL</span>
-            <span class="skill-chip">PostGIS</span><span class="skill-chip">Mapbox</span>
+            <span class="skill-chip">Python</span>
+            <span class="skill-chip">PyTorch</span>
+            <span class="skill-chip">TensorFlow</span>
+            <span class="skill-chip">Machine Learning</span>
+            <span class="skill-chip">Generative AI</span>
+            <span class="skill-chip">RAG</span>
+            <span class="skill-chip">LLM</span>
+            <span class="skill-chip">VLM</span>
+            <span class="skill-chip">GPT</span>
+            <span class="skill-chip">Hugging Face</span>
           </div>
         </div>
+
         <div class="skills-section">
-          <h4>Web3</h4>
+          <h4>Database</h4>
           <div class="skills-chips">
-            <span class="skill-chip">Solidity</span><span class="skill-chip">wagmi</span>
-            <span class="skill-chip">viem</span><span class="skill-chip">RainbowKit</span>
-            <span class="skill-chip">Monad</span>
+            <span class="skill-chip">Redis</span>
+            <span class="skill-chip">PostgreSQL</span>
+            <span class="skill-chip">MySQL</span>
           </div>
         </div>
+
         <div class="skills-section">
-          <h4>Infra &amp; Tools</h4>
+          <h4>Infrastructure & Cloud</h4>
           <div class="skills-chips">
-            <span class="skill-chip">Git</span><span class="skill-chip">Render</span>
-            <span class="skill-chip">Vercel</span><span class="skill-chip">GitHub Actions</span>
-            <span class="skill-chip">WSL</span><span class="skill-chip">Linux</span>
+            <span class="skill-chip">Docker</span>
+            <span class="skill-chip">Git</span>
+            <span class="skill-chip">AWS (S3, SageMaker, Textract)</span>
           </div>
         </div>
       `
